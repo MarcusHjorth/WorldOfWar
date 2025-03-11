@@ -15,30 +15,50 @@ public class Health : MonoBehaviour
     {
     }
 
+    public float GetMaxHealth()
+    {
+        return maxHealth;
+    }
+
+    public float GetCurrentHealth()
+    {
+        return currentHealth;
+    }
+
     public void Heal(float amount)
     {
         AdjustHealth(amount);
-        OnHeal?.Invoke();
+
+        if (!IsDead())
+        {
+            OnHeal?.Invoke();
+        }
     }
 
     public void Damage(float damage)
     {
         AdjustHealth(-damage);
-        OnDamage?.Invoke();
+
+        if (!IsDead())
+        {
+            OnDamage?.Invoke();
+        }
     }
 
     private void AdjustHealth(float health)
     {
+        if (IsDead()) return;
+        
         currentHealth = Mathf.Clamp(currentHealth + health, 0, maxHealth);
 
         if (currentHealth <= 0)
         {
-            Die();
+            OnDie?.Invoke();
         }
     }
 
-    private void Die()
+    public bool IsDead()
     {
-        OnDie?.Invoke();
+        return currentHealth <= 0;
     }
 }

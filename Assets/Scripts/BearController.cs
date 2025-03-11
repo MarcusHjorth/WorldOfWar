@@ -32,11 +32,14 @@ public class BearController : MonoBehaviour
     private BearState _currentState = BearState.Patrolling;
     private Transform _detectedPlayer;
     private float _lastAttackTime;
+    private Health _health;
 
     void Start()
     {
         _agent = GetComponent<NavMeshAgent>();
         _animator = GetComponent<Animator>();
+        _health = GetComponent<Health>();
+
         _agent.speed = patrolSpeed;
         UpdateAnimatorSpeed();
 
@@ -44,10 +47,15 @@ public class BearController : MonoBehaviour
         {
             SetDestination(waypoints[_currentWaypointIndex].position, waypointStoppingDistance);
         }
+
+        _health.OnDamage += OnDamage;
+        _health.OnDie += OnDie;
     }
 
     void Update()
     {
+        if (_health.IsDead()) return;
+
         switch (_currentState)
         {
             case BearState.Patrolling:
@@ -82,10 +90,15 @@ public class BearController : MonoBehaviour
     void DetectPlayer()
     {
         Collider[] hitColliders = Physics.OverlapSphere(transform.position, detectionRadius, playerLayer);
-        if (hitColliders.Length > 0)
+
+        foreach (Collider hit in hitColliders)
         {
-            _detectedPlayer = hitColliders[0].transform;
-            SetState(BearState.Chasing);
+            if (hit.CompareTag("Player"))
+            {
+                _detectedPlayer = hit.transform;
+                SetState(BearState.Chasing);
+                break;
+            }
         }
     }
 
@@ -203,7 +216,7 @@ public class BearController : MonoBehaviour
     void UpdateAnimatorSpeed()
     {
         float normalizedSpeed = Mathf.InverseLerp(0, chaseSpeed, _agent.velocity.magnitude);
-        
+
         _animator.SetFloat("Speed", normalizedSpeed);
     }
 
@@ -223,6 +236,17 @@ public class BearController : MonoBehaviour
                 health.Damage(attackDamage);
             }
         }
+    }
+
+    void OnDamage()
+    {
+        _animator.SetTrigger("Damage");
+    }
+
+    void OnDie()
+    {
+        _animator.SetTrigger("Die");
+        _agent.isStopped = true;
     }
 
     void OnDrawGizmosSelected()
