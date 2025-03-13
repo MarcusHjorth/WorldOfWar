@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+public class DemoPlayerController : MonoBehaviour
 {
     public float attackDamage = 10f;
 
