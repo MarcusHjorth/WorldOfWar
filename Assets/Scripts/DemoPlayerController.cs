@@ -1,8 +1,10 @@
+using System;
 using UnityEngine;
 
 public class DemoPlayerController : MonoBehaviour
 {
     public float attackDamage = 10f;
+    public float reach = 4f;
 
     private Health _health;
 
@@ -25,7 +27,7 @@ public class DemoPlayerController : MonoBehaviour
 
     void Hit()
     {
-        if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out RaycastHit hit, 4))
+        if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out RaycastHit hit, reach))
         {
             if (hit.transform.TryGetComponent(out Health health))
             {
@@ -37,5 +39,12 @@ public class DemoPlayerController : MonoBehaviour
     void OnDie()
     {
         Debug.Log("Player died");
+    }
+
+    private void OnDrawGizmos()
+    {
+        Ray cameraRay = Camera.main.ScreenPointToRay(Input.mousePosition);
+        
+        Gizmos.DrawLine(cameraRay.origin, cameraRay.origin + cameraRay.direction * reach);
     }
 }
