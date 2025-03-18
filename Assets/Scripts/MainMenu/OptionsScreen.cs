@@ -8,21 +8,27 @@ using Quaternion = System.Numerics.Quaternion;
 public class OptionsScreen : MonoBehaviour
 {
     public Toggle fullscreenTog, vsyncTog;
-
     public List<ResItem> resolutions = new List<ResItem>();
     private int selectedResolution;
-
     public TMP_Text resolutionLabel;
 
     public AudioMixer theMixer;
-
     public TMP_Text masterLabel, musicLabel, sfxLabel;
-
     public Slider masterSlider, musicSlider, sfxSlider;
+
+    public GameObject applyGraphicsPopupPanel;
+    private bool graphicsApplied = true;
+
+    private bool originalFullscreen;
+    private int originalVSyncCount;
+    private int originalResolutionIndex;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        originalFullscreen = Screen.fullScreen;
+        originalVSyncCount = QualitySettings.vSyncCount;
+        
         fullscreenTog.isOn = Screen.fullScreen;
 
         if (QualitySettings.vSyncCount == 0)
@@ -40,10 +46,10 @@ public class OptionsScreen : MonoBehaviour
             if (Screen.width == resolutions[i].horizontal && Screen.height == resolutions[i].vertical)
             {
                 foundRes = true;
-
                 selectedResolution = i;
-                
                 UpdateResLabel();
+                originalResolutionIndex = i;
+                break;
             }
         }
 
@@ -57,6 +63,8 @@ public class OptionsScreen : MonoBehaviour
             selectedResolution = resolutions.Count - 1;
             
             UpdateResLabel();
+
+            originalResolutionIndex = selectedResolution;
         }
 
         float vol = 0f;
@@ -72,6 +80,10 @@ public class OptionsScreen : MonoBehaviour
         masterLabel.text = Mathf.RoundToInt(masterSlider.value + 80).ToString();
         musicLabel.text = Mathf.RoundToInt(musicSlider.value + 80).ToString();
         sfxLabel.text = Mathf.RoundToInt(sfxSlider.value + 80).ToString();
+        
+        // Ensure the warning pop-up is hidden at start.
+        if (applyGraphicsPopupPanel != null)
+            applyGraphicsPopupPanel.SetActive(false);
     }
 
     // Update is called once per frame
@@ -88,6 +100,7 @@ public class OptionsScreen : MonoBehaviour
         }
 
         UpdateResLabel();
+        graphicsApplied = false;
     }
 
     public void ResRight()
@@ -99,12 +112,23 @@ public class OptionsScreen : MonoBehaviour
         }
 
         UpdateResLabel();
+        graphicsApplied = false;
     }
 
     public void UpdateResLabel()
     {
         resolutionLabel.text = resolutions[selectedResolution].horizontal.ToString() + " x " +
                                resolutions[selectedResolution].vertical.ToString();
+    }
+
+    public void ToggleFullscreen()
+    {
+        graphicsApplied = false;
+    }
+
+    public void ToggleVSync()
+    {
+        graphicsApplied = false;
     }
 
     public void ApplyGraphics()
@@ -121,6 +145,8 @@ public class OptionsScreen : MonoBehaviour
 
         Screen.SetResolution(resolutions[selectedResolution].horizontal, resolutions[selectedResolution].vertical,
             fullscreenTog.isOn);
+
+        graphicsApplied = true;
     }
 
     public void setMasterVol()
@@ -148,6 +174,53 @@ public class OptionsScreen : MonoBehaviour
         theMixer.SetFloat("SFXVol", sfxSlider.value);
         
         PlayerPrefs.SetFloat("SFXVol", sfxSlider.value);
+    }
+
+    public void TryCloseOptions()
+    {
+        if (!graphicsApplied)
+        {
+            //If settings have not been applied, show the pop-up panel
+            if (applyGraphicsPopupPanel != null)
+                applyGraphicsPopupPanel.SetActive(true);
+            else
+                Debug.Log("Pop-up panel is not assigned");
+        }
+        else
+        {
+            //If no changes have been made to any settings, simply close this gameObject (options screen)
+            gameObject.SetActive(false);
+            Debug.Log("No changes, closing options screen...");
+        }
+    }
+
+    public void ApplyAndClose()
+    {
+        ApplyGraphics();
+        if (applyGraphicsPopupPanel != null)
+            applyGraphicsPopupPanel.SetActive(false);
+    }
+
+    // Called by the Cancel button on the pop-up.
+    // This will revert any pending changes back to the original settings.
+    public void CancelAndReturnToOptions()
+    {
+        // Revert the actual graphics settings.
+        Screen.SetResolution(resolutions[originalResolutionIndex].horizontal, resolutions[originalResolutionIndex].vertical,
+            originalFullscreen);
+        QualitySettings.vSyncCount = originalVSyncCount;
+        
+        // Revert the UI toggles and label.
+        fullscreenTog.isOn = originalFullscreen;
+        vsyncTog.isOn = (originalVSyncCount != 0);
+        selectedResolution = originalResolutionIndex;
+        UpdateResLabel();
+        
+        // Mark changes as applied.
+        graphicsApplied = true;
+        
+        if (applyGraphicsPopupPanel != null)
+            applyGraphicsPopupPanel.SetActive(false);
     }
 }
 

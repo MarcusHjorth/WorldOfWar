@@ -30,7 +30,12 @@ public class MainMenu : MonoBehaviour
 
     public void CloseOptions()
     {
-        optionsScreen.SetActive(false);
+        //optionsScreen.SetActive(false);
+        OptionsScreen os = optionsScreen.GetComponent<OptionsScreen>();
+        if (os != null)
+            os.TryCloseOptions();
+        else
+            optionsScreen.SetActive(false);
     }
 
     public void QuitGame()
