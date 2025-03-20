@@ -719,13 +719,17 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1668098561892235063, guid: ff4f6f2826bf19d4f89fa3c01fcfc18c, type: 3}
-      propertyPath: m_DirectAudioVolumes.Array.data[0]
+      propertyPath: 'm_DirectAudioVolumes.Array.data[0]'
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1668098561892235063, guid: ff4f6f2826bf19d4f89fa3c01fcfc18c, type: 3}
-      propertyPath: m_EnabledAudioTracks.Array.data[0]
+      propertyPath: 'm_EnabledAudioTracks.Array.data[0]'
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2864277323147761875, guid: ff4f6f2826bf19d4f89fa3c01fcfc18c, type: 3}
+      propertyPath: m_SpriteState.m_PressedSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 23ffda0618e753941a7bdb72e750cae5, type: 3}
     - target: {fileID: 3042007784516199066, guid: ff4f6f2826bf19d4f89fa3c01fcfc18c, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -782,6 +786,10 @@ PrefabInstance:
       propertyPath: m_Color.a
       value: 0.4627451
       objectReference: {fileID: 0}
+    - target: {fileID: 6148729704151388895, guid: ff4f6f2826bf19d4f89fa3c01fcfc18c, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 23ffda0618e753941a7bdb72e750cae5, type: 3}
     - target: {fileID: 6240503962279315295, guid: ff4f6f2826bf19d4f89fa3c01fcfc18c, type: 3}
       propertyPath: m_Name
       value: TitleUnderline
