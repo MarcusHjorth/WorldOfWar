@@ -9,10 +9,14 @@ public class RabbitController : MonoBehaviour
         Fleeing,
     }
 
-    [Header("Waypoint Following")] public float waypointStoppingDistance = 0.1f;
+    [Header("Waypoint Following")] public float waypointStoppingDistance = 3f;
+
+    [Header("Home Settings")] public Transform homeTransform;
+    public float maxDistanceFromHome = 30f;
+    public float homeGravityStrength = 0.3f;
 
     [Header("Player Detection")] public float detectionRadius = 10f;
-    public float fleeRadius = 20f;
+    public float fleeRadius = 25f;
     public LayerMask playerLayer;
 
     [Header("Movement")] public float exploreSpeed = 3.5f;
@@ -69,9 +73,30 @@ public class RabbitController : MonoBehaviour
 
     Vector3 CreateNewExploreWaypoint()
     {
-        Vector3 direction = Vector3.Lerp(transform.forward, Random.insideUnitSphere, 0.6f);
+        Vector3 currentPosition = transform.position;
 
-        return transform.position + direction * 15f;
+        // Calculate a random direction
+        Vector3 randomDirection = Random.insideUnitSphere;
+
+        // Lerp between forward direction and random direction
+        Vector3 explorationDirection = Vector3.Lerp(transform.forward, randomDirection, 0.6f);
+
+        if (homeTransform != null)
+        {
+            Vector3 homePosition = homeTransform.position; // Get the position of the home Transform
+            Vector3 directionToHome = homePosition - currentPosition;
+            float distanceFromHome = directionToHome.magnitude;
+
+            // If the rabbit is far from home, add a component pointing towards home
+            if (distanceFromHome > maxDistanceFromHome)
+            {
+                explorationDirection =
+                    Vector3.Lerp(explorationDirection, directionToHome.normalized, homeGravityStrength);
+            }
+        }
+
+        // Normalize the direction, scale it and add it to the currentPosition
+        return currentPosition + explorationDirection.normalized * 15f;
     }
 
     void Flee()
@@ -102,12 +127,29 @@ public class RabbitController : MonoBehaviour
 
     Vector3 CreateNewFleeWaypoint()
     {
-        int flip = Random.value < 0.2 ? -1 : 1;
         Vector3 toPlayer = transform.position - _detectedPlayer.position;
-        Vector3 direction = Vector3.Lerp(transform.forward, toPlayer.normalized * flip, 0.8f);
-        Vector3 turnDirection = transform.right * Random.Range(-8f, 8f);
+        Vector3 fleeDirection = toPlayer.normalized;
 
-        return transform.position + direction * 15f + turnDirection;
+        // Create a rotation to randomly deviate from the direct flee direction
+        Quaternion randomRotation = Quaternion.Euler(0, Random.Range(-110f, 110f), 0);
+        fleeDirection = randomRotation * fleeDirection;
+
+        // Occasionally allow for more drastic direction changes
+        if (Random.value < 0.2f)
+        {
+            fleeDirection = Random.onUnitSphere;
+            fleeDirection.y = 0; // Keep it on the horizontal plane
+            fleeDirection = fleeDirection.normalized;
+        }
+
+        // Slightly bias towards moving forward
+        fleeDirection = Vector3.Lerp(transform.forward, fleeDirection, 0.7f);
+
+        // Add a small random offset for natural movement
+        Vector3 randomOffset = Random.insideUnitSphere * 3f;
+        randomOffset.y = 0; // Keep it on the horizontal plane
+
+        return transform.position + fleeDirection * 15f + randomOffset;
     }
 
     void DetectPlayer()
@@ -169,5 +211,11 @@ public class RabbitController : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, detectionRadius);
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position, fleeRadius);
+
+        if (homeTransform != null)
+        {
+            Gizmos.color = Color.green;
+            Gizmos.DrawWireSphere(homeTransform.position, maxDistanceFromHome);
+        }
     }
 }

@@ -244,9 +244,11 @@ public class SkeletonController : MonoBehaviour
 
     void OnDie()
     {
+        _animator.ResetTrigger("Attack");
+        _animator.ResetTrigger("Damage");
         _animator.SetTrigger("Die");
         _agent.isStopped = true;
-        
+
         _collider.enabled = false;
     }
 

@@ -8,23 +8,44 @@ public class DemoPlayerController : MonoBehaviour
 
     private Health _health;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    // Reference to InventoryUI
+    public InventoryUI inventoryUI;
+
+    // Start is called before the first frame update
     void Start()
     {
+        // Setup health system
         _health = GetComponent<Health>();
-
         _health.OnDie += OnDie;
+
+        // Set the cursor locked and invisible at the start (normal game mode)
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        
+        if (Input.GetMouseButtonDown(0)) 
         {
             Hit();
         }
+
+       
+        if (Input.GetKeyDown(KeyCode.E)) 
+        {
+            TryInteract();
+        }
+
+       
+        if (Input.GetKeyDown(KeyCode.B))
+        {
+            inventoryUI.ToggleInventory();
+        }
     }
 
+    // Method to handle the player's attack
     void Hit()
     {
         if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out RaycastHit hit, reach))
@@ -36,15 +57,31 @@ public class DemoPlayerController : MonoBehaviour
         }
     }
 
+    // Method to try to interact with items
+    void TryInteract()
+    {
+       
+
+        if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out RaycastHit hit, reach))
+        {
+            if (hit.transform.TryGetComponent(out ItemObject item))
+            {
+                item.OnHandlePickItem(); // Adds item to the inventory and destroys it
+                Debug.Log($"Picked up {item.referenceItem.displayName}");
+            }
+        }
+    }
+
+    // Method to handle player death (when health reaches zero)
     void OnDie()
     {
         Debug.Log("Player died");
     }
 
+    // Method to visualize the player's attack reach in the scene view (for debugging)
     private void OnDrawGizmos()
     {
         Ray cameraRay = Camera.main.ScreenPointToRay(Input.mousePosition);
-        
         Gizmos.DrawLine(cameraRay.origin, cameraRay.origin + cameraRay.direction * reach);
     }
 }

@@ -9,6 +9,12 @@ EditorBuildSettings:
     path: Assets/Scenes/SampleScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
   - enabled: 1
+    path: Assets/Scenes/MainMenuMJR.unity
+    guid: c4c18c732a4af2a46997fa1b8a5ca4e5
+  - enabled: 1
+    path: Assets/Scenes/PauseMenuMJR.unity
+    guid: fdd2b234407d3674bb708dae1c1b4589
+  - enabled: 1
     path: Assets/Scenes/TestSelectionScene.unity
     guid: d28b2e3377ebb164b8581a890e65383a
   - enabled: 1

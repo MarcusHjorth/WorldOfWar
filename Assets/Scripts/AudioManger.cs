@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class AudioManager : MonoBehaviour
 {
@@ -13,9 +14,26 @@ public class AudioManager : MonoBehaviour
     [Range(0f, 1f)] public float startVolume = 0.25f;  // Initial volume
     [Range(0f, 1f)] public float endVolume = 0.15f;    // Final volume
     public float fadeDuration = 5f; // Duration for the fade effect
+    
+    public AudioMixer theMixer;
 
     private void Start()
     {
+        if (PlayerPrefs.HasKey("MasterVol"))
+        {
+            theMixer.SetFloat("MasterVol", PlayerPrefs.GetFloat("MasterVol"));
+        }
+
+        if (PlayerPrefs.HasKey("MusicVol"))
+        {
+            theMixer.SetFloat("MusicVol", PlayerPrefs.GetFloat("MusicVol"));
+        }
+
+        if (PlayerPrefs.HasKey("SFXVol"))
+        {
+            theMixer.SetFloat("SFXVol", PlayerPrefs.GetFloat("SFXVol"));
+        }
+        
         musicScource.clip = background;
         musicScource.volume = startVolume; // Set the volume to the start level
         musicScource.Play();
