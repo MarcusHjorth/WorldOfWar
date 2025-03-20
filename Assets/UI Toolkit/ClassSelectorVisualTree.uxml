@@ -1,0 +1,13 @@
+<engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI%20Toolkit/ClassSelectorStyle.uss?fileID=7433441132597879392&amp;guid=9261e68e5d2df30439263bb8321fcfbf&amp;type=3#ClassSelectorStyle" />
+    <engine:VisualElement name="Container" style="flex-grow: 1;">
+        <engine:Label text="Character class" name="ClassName" class="header" style="font-size: 40px; color: rgb(255, 255, 255); -unity-text-align: upper-center; height: 100px; flex-direction: row; margin-top: 50px;" />
+        <engine:GroupBox style="height: 612px;" />
+        <engine:Button text="Start Game" name="StartGame" style="height: 60px; width: 523px; align-self: center; border-top-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; border-bottom-left-radius: 10px; border-left-color: rgb(28, 255, 53); border-right-color: rgb(28, 255, 53); border-top-color: rgb(28, 255, 53); border-bottom-color: rgb(28, 255, 53); border-top-width: 0; border-right-width: 0; border-bottom-width: 0; border-left-width: 0; background-color: rgb(50, 224, 92);" />
+        <engine:Label name="Selector" style="white-space: pre-wrap; flex-direction: row; -unity-text-align: upper-center; justify-content: center; height: 216px;">
+            <engine:Button text="Paladin" name="PaladinButton" style="font-size: 20px; width: 200px; height: 200px; align-content: auto; align-self: center; justify-content: flex-start; -unity-text-align: lower-center; border-top-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; border-bottom-left-radius: 10px; margin-top: 2px; background-color: rgb(255, 255, 255); white-space: pre; color: rgb(55, 55, 55);" />
+            <engine:Button text="Archer" name="ArcherButton" style="font-size: 20px; width: 200px; height: 200px; align-content: auto; align-self: center; justify-content: flex-start; -unity-text-align: lower-center; border-top-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; border-bottom-left-radius: 10px; margin-top: 2px; background-color: rgb(255, 255, 255);" />
+            <engine:Button text="Mage&#10;" name="MageButton" style="font-size: 20px; width: 200px; height: 200px; align-content: auto; align-self: center; justify-content: flex-start; -unity-text-align: lower-center; border-top-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; border-bottom-left-radius: 10px; margin-top: 2px; background-color: rgb(255, 255, 255);" />
+        </engine:Label>
+    </engine:VisualElement>
+</engine:UXML>
