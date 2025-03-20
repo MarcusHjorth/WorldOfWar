@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class PauseMenu : MonoBehaviour
 {
@@ -6,8 +7,8 @@ public class PauseMenu : MonoBehaviour
 
     private bool isPaused = false;
 
-    public WowCamera camera;
-    public PlayerMovement playerMovement;
+    public DemoPlayerMovement demoPlayerMovement;
+    public DemoPlayerController demoPlayerController;
 
     void Update()
     {
@@ -32,10 +33,10 @@ public class PauseMenu : MonoBehaviour
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
 
-        if (camera != null && playerMovement != null)
+        if (demoPlayerMovement != null && demoPlayerController != null)
         {
-            camera.enabled = false;
-            playerMovement.enabled = false;
+            demoPlayerMovement.enabled = false;
+            demoPlayerController.enabled = false;
         }
 
         isPaused = true;
@@ -50,10 +51,10 @@ public class PauseMenu : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
 
-        if (camera != null && playerMovement != null)
+        if (demoPlayerMovement != null && demoPlayerController != null)
         {
-            camera.enabled = true;
-            playerMovement.enabled = true;
+            demoPlayerMovement.enabled = true;
+            demoPlayerController.enabled = true;
         }
 
         isPaused = false;
