@@ -78,7 +78,7 @@ public class PlayerMovement : MonoBehaviour
         {
             Rotate(true);
         }
-        else if (Input.GetKey(KeyCode.E))
+        else if (Input.GetKey(KeyCode.F))
         {
             Rotate(false);
         }

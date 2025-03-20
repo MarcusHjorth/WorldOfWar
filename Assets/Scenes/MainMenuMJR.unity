@@ -719,11 +719,11 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1668098561892235063, guid: ff4f6f2826bf19d4f89fa3c01fcfc18c, type: 3}
-      propertyPath: 'm_DirectAudioVolumes.Array.data[0]'
+      propertyPath: m_DirectAudioVolumes.Array.data[0]
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1668098561892235063, guid: ff4f6f2826bf19d4f89fa3c01fcfc18c, type: 3}
-      propertyPath: 'm_EnabledAudioTracks.Array.data[0]'
+      propertyPath: m_EnabledAudioTracks.Array.data[0]
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3042007784516199066, guid: ff4f6f2826bf19d4f89fa3c01fcfc18c, type: 3}

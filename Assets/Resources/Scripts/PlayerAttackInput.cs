@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class PlayerAttackInput : MonoBehaviour
 {
@@ -26,4 +27,6 @@ public class PlayerAttackInput : MonoBehaviour
             Attack?.Invoke();
         }
     }
+
+    
 }
