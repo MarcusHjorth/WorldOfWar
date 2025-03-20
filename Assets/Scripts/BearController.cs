@@ -70,6 +70,7 @@ public class BearController : MonoBehaviour
                 break;
             case BearState.Returning:
                 ReturnToPatrol();
+                DetectPlayer();
                 break;
         }
 
@@ -245,6 +246,8 @@ public class BearController : MonoBehaviour
 
     void OnDie()
     {
+        _animator.ResetTrigger("Attack");
+        _animator.ResetTrigger("Damage");
         _animator.SetTrigger("Die");
         _agent.isStopped = true;
     }
