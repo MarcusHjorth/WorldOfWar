@@ -1178,7 +1178,6 @@ MonoBehaviour:
   startVolume: 0.214
   endVolume: 0.11
   fadeDuration: 5
-  theMixer: {fileID: 0}
 --- !u!4 &65161129
 Transform:
   m_ObjectHideFlags: 0
