@@ -1,0 +1,1 @@
+﻿Before opening any demo scene, set the color space to Linear by going to Edit > Project Settings > Player > Other Settings > Color Space > Linear.

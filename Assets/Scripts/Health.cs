@@ -1,11 +1,16 @@
 using System;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Health : MonoBehaviour
 {
+    public Slider healthSlider;
+    public Slider easeHealthSlider;
+    public float lerpSpeed = 0.05f;
+    
     [SerializeField] private float maxHealth = 100f;
-    [SerializeField] private float currentHealth = 100f;
-
+    [SerializeField] private float currentHealth;
+    
     public Action OnHeal;
     public Action OnDamage;
     public Action OnDie;
@@ -13,6 +18,25 @@ public class Health : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        currentHealth = maxHealth;
+    }
+
+    void Update()
+    {
+        if (healthSlider != null && healthSlider.value != currentHealth)
+        {
+            healthSlider.value = currentHealth;
+        }
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            TakeDamage(10);
+        }
+
+        if (easeHealthSlider != null && healthSlider != null && healthSlider.value != easeHealthSlider.value)
+        {
+            easeHealthSlider.value = Mathf.Lerp(easeHealthSlider.value, currentHealth, lerpSpeed);
+        }
     }
 
     public float GetMaxHealth()
@@ -60,5 +84,10 @@ public class Health : MonoBehaviour
     public bool IsDead()
     {
         return currentHealth <= 0;
+    }
+
+    public void TakeDamage(float amount)
+    {
+        currentHealth -= amount;
     }
 }
