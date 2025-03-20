@@ -593,6 +593,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 23571339282463562, guid: ff4f6f2826bf19d4f89fa3c01fcfc18c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 798076210336591642, guid: ff4f6f2826bf19d4f89fa3c01fcfc18c, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -673,17 +677,125 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1668098561892235063, guid: ff4f6f2826bf19d4f89fa3c01fcfc18c, type: 3}
+      propertyPath: m_VideoClip
+      value: 
+      objectReference: {fileID: 32900000, guid: 40d693e5ece46084789f7baf30bc877e, type: 3}
+    - target: {fileID: 1668098561892235063, guid: ff4f6f2826bf19d4f89fa3c01fcfc18c, type: 3}
+      propertyPath: m_ControlledAudioTrackCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1668098561892235063, guid: ff4f6f2826bf19d4f89fa3c01fcfc18c, type: 3}
+      propertyPath: m_DirectAudioMutes.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1668098561892235063, guid: ff4f6f2826bf19d4f89fa3c01fcfc18c, type: 3}
+      propertyPath: m_DirectAudioVolumes.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1668098561892235063, guid: ff4f6f2826bf19d4f89fa3c01fcfc18c, type: 3}
+      propertyPath: m_EnabledAudioTracks.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1668098561892235063, guid: ff4f6f2826bf19d4f89fa3c01fcfc18c, type: 3}
+      propertyPath: m_TargetAudioSources.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1668098561892235063, guid: ff4f6f2826bf19d4f89fa3c01fcfc18c, type: 3}
+      propertyPath: 'm_DirectAudioVolumes.Array.data[0]'
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1668098561892235063, guid: ff4f6f2826bf19d4f89fa3c01fcfc18c, type: 3}
+      propertyPath: 'm_EnabledAudioTracks.Array.data[0]'
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3042007784516199066, guid: ff4f6f2826bf19d4f89fa3c01fcfc18c, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3042007784516199066, guid: ff4f6f2826bf19d4f89fa3c01fcfc18c, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3042007784516199066, guid: ff4f6f2826bf19d4f89fa3c01fcfc18c, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3948938106527651031, guid: ff4f6f2826bf19d4f89fa3c01fcfc18c, type: 3}
+      propertyPath: m_text
+      value: WorldOfWar
+      objectReference: {fileID: 0}
+    - target: {fileID: 3948938106527651031, guid: ff4f6f2826bf19d4f89fa3c01fcfc18c, type: 3}
+      propertyPath: m_fontSize
+      value: 72
+      objectReference: {fileID: 0}
+    - target: {fileID: 4320394707170319460, guid: ff4f6f2826bf19d4f89fa3c01fcfc18c, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4320394707170319460, guid: ff4f6f2826bf19d4f89fa3c01fcfc18c, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4556653009110008226, guid: ff4f6f2826bf19d4f89fa3c01fcfc18c, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4556653009110008226, guid: ff4f6f2826bf19d4f89fa3c01fcfc18c, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4727384076315428049, guid: ff4f6f2826bf19d4f89fa3c01fcfc18c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4927083025353148121, guid: ff4f6f2826bf19d4f89fa3c01fcfc18c, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4927083025353148121, guid: ff4f6f2826bf19d4f89fa3c01fcfc18c, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4927083025353148121, guid: ff4f6f2826bf19d4f89fa3c01fcfc18c, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5023425432571468857, guid: ff4f6f2826bf19d4f89fa3c01fcfc18c, type: 3}
       propertyPath: m_Color.a
       value: 0.4627451
       objectReference: {fileID: 0}
+    - target: {fileID: 6389500626762244828, guid: ff4f6f2826bf19d4f89fa3c01fcfc18c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7433493192631041379, guid: ff4f6f2826bf19d4f89fa3c01fcfc18c, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7433493192631041379, guid: ff4f6f2826bf19d4f89fa3c01fcfc18c, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7744662245297919850, guid: ff4f6f2826bf19d4f89fa3c01fcfc18c, type: 3}
       propertyPath: firstLevel
-      value: TestPauseMenuMJR
+      value: Selection
       objectReference: {fileID: 0}
     - target: {fileID: 8028566509781658486, guid: ff4f6f2826bf19d4f89fa3c01fcfc18c, type: 3}
       propertyPath: m_Name
       value: Main Menu
+      objectReference: {fileID: 0}
+    - target: {fileID: 8959880300641241590, guid: ff4f6f2826bf19d4f89fa3c01fcfc18c, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8959880300641241590, guid: ff4f6f2826bf19d4f89fa3c01fcfc18c, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8959880300641241590, guid: ff4f6f2826bf19d4f89fa3c01fcfc18c, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
