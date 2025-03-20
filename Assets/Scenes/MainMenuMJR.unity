@@ -673,6 +673,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5023425432571468857, guid: ff4f6f2826bf19d4f89fa3c01fcfc18c, type: 3}
+      propertyPath: m_Color.a
+      value: 0.4627451
+      objectReference: {fileID: 0}
+    - target: {fileID: 7744662245297919850, guid: ff4f6f2826bf19d4f89fa3c01fcfc18c, type: 3}
+      propertyPath: firstLevel
+      value: TestPauseMenuMJR
+      objectReference: {fileID: 0}
     - target: {fileID: 8028566509781658486, guid: ff4f6f2826bf19d4f89fa3c01fcfc18c, type: 3}
       propertyPath: m_Name
       value: Main Menu
