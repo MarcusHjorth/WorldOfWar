@@ -70,6 +70,7 @@ public class BearController : MonoBehaviour
                 break;
             case BearState.Returning:
                 ReturnToPatrol();
+                DetectPlayer();
                 break;
         }
 
