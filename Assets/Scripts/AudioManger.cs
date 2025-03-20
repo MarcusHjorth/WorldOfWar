@@ -19,13 +19,6 @@ public class AudioManager : MonoBehaviour
 
     private void Start()
     {
-        musicScource.clip = background;
-        musicScource.volume = startVolume; // Set the volume to the start level
-        musicScource.Play();
-
-        // Start the fade-in process
-        StartCoroutine(FadeInMusic(fadeDuration));
-        
         if (PlayerPrefs.HasKey("MasterVol"))
         {
             theMixer.SetFloat("MasterVol", PlayerPrefs.GetFloat("MasterVol"));
@@ -40,6 +33,13 @@ public class AudioManager : MonoBehaviour
         {
             theMixer.SetFloat("SFXVol", PlayerPrefs.GetFloat("SFXVol"));
         }
+        
+        musicScource.clip = background;
+        musicScource.volume = startVolume; // Set the volume to the start level
+        musicScource.Play();
+
+        // Start the fade-in process
+        StartCoroutine(FadeInMusic(fadeDuration));
     }
 
     private IEnumerator FadeInMusic(float duration)
