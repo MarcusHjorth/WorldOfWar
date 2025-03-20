@@ -7,7 +7,7 @@ public class CharacterSelection : MonoBehaviour
 {
   public GameObject[] characters;
   public int selectedCharacter = 0;
-  private String _sceneName = "TestSelectionScene";
+  public String _sceneName = "Elwynn Forest";
   public TMP_Text label;
 
   void Start()

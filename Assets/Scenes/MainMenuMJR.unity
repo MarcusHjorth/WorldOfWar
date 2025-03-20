@@ -814,6 +814,10 @@ PrefabInstance:
       propertyPath: theMixer
       value: 
       objectReference: {fileID: 24100000, guid: f03941994620e794da0160de679c71e1, type: 2}
+    - target: {fileID: 723667316434101658, guid: 9a4f9fc39da9e674981f4fa32d287f8c, type: 3}
+      propertyPath: musicScource
+      value: 
+      objectReference: {fileID: 162468362}
     - target: {fileID: 2607182962552684975, guid: 9a4f9fc39da9e674981f4fa32d287f8c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 878.737
