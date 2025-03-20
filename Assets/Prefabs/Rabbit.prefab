@@ -678,7 +678,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waypointStoppingDistance: 3
   homeTransform: {fileID: 0}
-  maxDistanceFromHome: 30
+  maxDistanceFromHome: 40
   homeGravityStrength: 0.3
   detectionRadius: 10
   fleeRadius: 25
