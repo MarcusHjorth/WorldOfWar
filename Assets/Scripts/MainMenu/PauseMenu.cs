@@ -6,14 +6,13 @@ public class PauseMenu : MonoBehaviour
 
     private bool isPaused = false;
 
-    // Update() is called once per frame.
-    // This is where we check if the player has pressed a key.
+    public WowCamera camera;
+    public PlayerMovement playerMovement;
+
     void Update()
     {
-        // Check if the "L" key was pressed during this frame.
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            // Check if the pause menu is currently active (visible).
             if (isPaused)
             {
                 ResumeGame();
@@ -29,14 +28,34 @@ public class PauseMenu : MonoBehaviour
     {
         pauseMenu.SetActive(true);
         Time.timeScale = 0f;
+
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+
+        if (camera != null && playerMovement != null)
+        {
+            camera.enabled = false;
+            playerMovement.enabled = false;
+        }
+
         isPaused = true;
         Debug.Log("Game paused, time freeze");
     }
 
-    void ResumeGame()
+    public void ResumeGame()
     {
         pauseMenu.SetActive(false);
         Time.timeScale = 1f;
+
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+
+        if (camera != null && playerMovement != null)
+        {
+            camera.enabled = true;
+            playerMovement.enabled = true;
+        }
+
         isPaused = false;
         Debug.Log("Game resumed, time unfreeze");
     }
