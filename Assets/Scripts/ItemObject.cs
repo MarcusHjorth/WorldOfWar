@@ -6,7 +6,10 @@ public class ItemObject : MonoBehaviour
 
     public void OnHandlePickItem()
     {
-        InventorySystem.current.Add(referenceItem);
+        // Calls a new method 
+        InventorySystem.current.Add(referenceItem); // refenceItem from ItemObj 
+
+        // Destorys the gameObj in the scene then  is's hit with reycast 
         Destroy(gameObject);
     }
 }

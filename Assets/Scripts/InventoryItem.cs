@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-[Serializable]
+[Serializable]  // Save the class data between game sessions also Inspector
 public class InventoryItem
 {
     public InventoryItemData data { get; private set; }
@@ -16,7 +16,7 @@ public class InventoryItem
     public void AddToStack()
     {
         stackSize++;
-        Debug.Log($"Stack size increased: {data.displayName} now has {stackSize}");
+       
     }
 
     public void RemoveFromStack()
