@@ -5,11 +5,10 @@ public class PlayerInteractable : MonoBehaviour
 {
   public float interactDistance = 5f;
   public LayerMask interactables;
-  private Camera playerCamera;
+  public Camera playerCamera;
 
   void Start()
   {
-    playerCamera = GameObject.Find("PlayerCamera").GetComponent<Camera>();
     if (playerCamera == null)
     {
       Debug.LogError("Player Camera is NOT assigned! Check if the name is correct.");
