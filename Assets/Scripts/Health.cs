@@ -6,7 +6,7 @@ public class Health : MonoBehaviour
 {
     public Slider healthSlider;
     public Slider easeHealthSlider;
-    public float lerpSpeed = 0.05f;
+    public float lerpSpeed = 0.03f;
     
     [SerializeField] private float maxHealth = 100f;
     [SerializeField] private float currentHealth;
@@ -30,7 +30,7 @@ public class Health : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            TakeDamage(10);
+            Damage(10);
         }
 
         if (easeHealthSlider != null && healthSlider != null && healthSlider.value != easeHealthSlider.value)
