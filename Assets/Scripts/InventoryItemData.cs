@@ -1,11 +1,15 @@
 using UnityEngine;
-[CreateAssetMenu(menuName = "Inventory Data Item")]
+[CreateAssetMenu(menuName = "Inventory Item Data")]
 public class InventoryItemData : ScriptableObject
 {
     public string id; 
     public string displayName;
     public Sprite icone;
     public GameObject prefab;
+    
+    public bool isWeapon;
+    public float attackPower;
+    
 
     /*
 
@@ -15,10 +19,8 @@ public class InventoryItemData : ScriptableObject
     ScriptableObject : data that doesn't need to be attached to a GameObject
 
     GameObject :  stores a reference to a prefab
-
-
-
-
+    
+    public bool isWeapon = if you can "pick up" and equip it as a weapon. 
 
 
     */

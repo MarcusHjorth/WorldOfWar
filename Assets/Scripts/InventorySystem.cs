@@ -48,8 +48,10 @@ public class InventorySystem : MonoBehaviour
 
     public void Add(InventoryItemData referenceData)
     {
+        Debug.Log("Picking up item: " + referenceData.name);
         if (m_itemDictionary.TryGetValue(referenceData, out InventoryItem value))   // Checks if the item is already in the inventory
         {
+            
             value.AddToStack();     // add to stack if in inventory
         }
         else
@@ -64,6 +66,12 @@ public class InventorySystem : MonoBehaviour
         
         onInventoryChanged?.Invoke(inventory); // Event to notify other systems (UI) that the inventory has changed.
     }
+    
+    public void TriggerInventoryUpdate()
+    {
+        onInventoryChanged?.Invoke(inventory);
+    }
+
 
 
     
@@ -83,6 +91,8 @@ public class InventorySystem : MonoBehaviour
         
         onInventoryChanged?.Invoke(inventory);
     }
+   
+
 
   /*
     public void SpawnItems()

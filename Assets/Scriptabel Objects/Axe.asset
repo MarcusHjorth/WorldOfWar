@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07d20fba122cbd042ac2132cb145f852, type: 3}
   m_Name: Axe
   m_EditorClassIdentifier: 
-  id: Inventory_Axe
+  id: axe
   displayName: Axe
   icone: {fileID: 21300000, guid: 172774604c1bee84185a69041576525b, type: 3}
-  prefab: {fileID: 2757737427540131093, guid: 05b7ed5f67e74a640a9c53e965cd9d12, type: 3}
+  prefab: {fileID: 4432695019516498793, guid: 050099890a2d8b148b865d8b932dd87f, type: 3}
+  isWeapon: 1
+  attackPower: 5
