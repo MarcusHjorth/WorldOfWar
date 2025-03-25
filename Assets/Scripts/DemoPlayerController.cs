@@ -57,17 +57,26 @@ public class DemoPlayerController : MonoBehaviour
         }
     }
 
-    // Method to try to interact with items
+    
+
+   
     void TryInteract()
     {
-       
 
         if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out RaycastHit hit, reach))
         {
             if (hit.transform.TryGetComponent(out ItemObject item))
             {
-                item.OnHandlePickItem(); // Adds item to the inventory and destroys it
-                Debug.Log($"Picked up {item.referenceItem.displayName}");
+                item.OnHandlePickItem(); 
+
+                 /*
+                    We use raycasting to determine where the mouse is pointing in the game world
+
+                    When we hover over an Item (gameObj) and press E, we check with ray-cast if we hit an item. 
+                    if yes = calls the method OnHandlePickItem()
+
+                */
+
             }
         }
     }

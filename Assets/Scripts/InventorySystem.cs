@@ -1,32 +1,37 @@
+
+//Provide useful collections and LINQ functions.
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
 public class InventorySystem : MonoBehaviour
 {
-    public static InventorySystem current;
+    public static InventorySystem current;  //Singleton
+
+
     public event System.Action<List<InventoryItem>> onInventoryChanged;
 
     private Dictionary<InventoryItemData, InventoryItem> m_itemDictionary;
     public List<InventoryItem> inventory { get; private set; }
 
-    public GameObject[] itemPrefabs; // The item prefabs to spawn
+    public GameObject[] itemPrefabs; 
 
     private void Awake()
     {
+        // method makes sure there’s only one inventory system, keeps it active across scenes, and sets up the structures to store items
         if (current == null)
         {
-            current = this; // Set this as the singleton instance
+            current = this; 
         }
         else if (current != this)
         {
-            Destroy(gameObject); // Destroy any duplicate InventorySystem if exists
+            Destroy(gameObject); 
         }
 
-        DontDestroyOnLoad(gameObject);
+        DontDestroyOnLoad(gameObject);  // Invenotrysystem is persisted  across scene changes
 
-        inventory = new List<InventoryItem>();
-        m_itemDictionary = new Dictionary<InventoryItemData, InventoryItem>();
+        inventory = new List<InventoryItem>();  // Player inventory list, remake it into a Dictionary.
+        m_itemDictionary = new Dictionary<InventoryItemData, InventoryItem>();  // The Dictionary allows you to quickly look up an item by its data (the key)
     }
 
     public bool IsItemInInventory(string itemId)
@@ -35,35 +40,36 @@ public class InventorySystem : MonoBehaviour
         {
             if (item.data.id == itemId)
             {
-                return true; // Item is already in inventory
+                return true; 
             }
         }
-        return false; // Item not found in inventory
+        return false; 
     }
 
     public void Add(InventoryItemData referenceData)
     {
-        if (m_itemDictionary.TryGetValue(referenceData, out InventoryItem value))
+        if (m_itemDictionary.TryGetValue(referenceData, out InventoryItem value))   // Checks if the item is already in the inventory
         {
-            value.AddToStack(); // Stack the item
-            Debug.Log($"Stack size increased: {referenceData.displayName} now has {value.stackSize}");
+            value.AddToStack();     // add to stack if in inventory
         }
         else
         {
+            // if not makes a new InventoryItem 
             InventoryItem newItem = new InventoryItem(referenceData);
             inventory.Add(newItem);
             m_itemDictionary.Add(referenceData, newItem);
-            Debug.Log($"Added new item: {referenceData.displayName}, Stack size: {newItem.stackSize}");
+            
         }
 
-        // Trigger UI update
-        onInventoryChanged?.Invoke(inventory); // Notify UI to refresh
+        
+        onInventoryChanged?.Invoke(inventory); // Event to notify other systems (UI) that the inventory has changed.
     }
 
 
     
     public void Remove(InventoryItemData referenceData)
-    {
+    {   
+        //Removes the item from the stack or bag (if stack is 0)
         if (m_itemDictionary.TryGetValue(referenceData, out InventoryItem value))
         {
             value.RemoveFromStack();
@@ -74,28 +80,29 @@ public class InventorySystem : MonoBehaviour
             }
         }
 
-        // Notify UI update immediately
+        
         onInventoryChanged?.Invoke(inventory);
     }
 
-    // Method to spawn items (only if they are not in the inventory)
+  /*
     public void SpawnItems()
     {
         foreach (var itemPrefab in itemPrefabs)
         {
-            // Get the item data reference
+            
             InventoryItemData itemData = itemPrefab.GetComponent<ItemObject>().referenceItem;
 
-            // Check if the item is already in the inventory
+            
             if (IsItemInInventory(itemData.id))
             {
                
-                continue; // Skip spawning if the item is already in inventory
+                continue; 
             }
 
-            // Spawn the item if not in inventory
+           
             Vector3 spawnPosition = new Vector3(Random.Range(-10, 10), 0, Random.Range(-10, 10));
             Instantiate(itemPrefab, spawnPosition, Quaternion.identity);
         }
     }
+    */
 }

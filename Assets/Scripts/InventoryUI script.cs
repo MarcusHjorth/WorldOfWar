@@ -5,79 +5,68 @@ using UnityEngine.UI;
 
 public class InventoryUI : MonoBehaviour
 {
-    public GameObject inventoryPanel; // The inventory UI panel
-    public Transform itemContainer; // Where UI items are stored (parent of item slots)
-    public GameObject itemSlotPrefab; // The prefab for item slots
-    private bool isOpen = false; // Inventory visibility state
+    public GameObject inventoryPanel; // reference inventory panel
+    public Transform itemContainer; // reference container 
+    public GameObject itemSlotPrefab; // reference to prefab ItemSlot UI 
+    private bool isOpen = false; // if the UI is open or not 
 
     private void Start()
     {
-        inventoryPanel.SetActive(false); // Hide inventory at start
-        InventorySystem.current.onInventoryChanged += UpdateUI; // Subscribe to inventory change
+        inventoryPanel.SetActive(false);   // Can't see UI when stating the game 
+        InventorySystem.current.onInventoryChanged += UpdateUI; // listens for changes to the inventory via the onInventoryChanged event 
     }
 
-    // Toggle the inventory open/close
+    
     public void ToggleInventory()
     {
-        isOpen = !isOpen;
-        inventoryPanel.SetActive(isOpen); // Show or hide the inventory panel based on the isOpen flag
+        // Toggle the inventory state (open or close) 
+        isOpen = !isOpen;   
+        inventoryPanel.SetActive(isOpen); 
 
-        // Control cursor visibility and lock state
-        Cursor.visible = isOpen; // Show cursor when inventory is open
+        // shows mosue cursor when open. 
+        Cursor.visible = isOpen; 
         Cursor.lockState = isOpen ? CursorLockMode.None : CursorLockMode.Locked;
     }
 
-    // Public method to check if the inventory is open
+    
     public bool IsInventoryOpen()
     {
-        return isOpen;
+        return isOpen;  // Returns whether the inventory is currently open or not
     }
 
-    // Update UI based on inventory content
     public void UpdateUI(List<InventoryItem> inventory)
     {
-        Debug.Log("UpdateUI called! Refreshing inventory UI...");
 
-        // Clear existing UI items
-        foreach (Transform child in itemContainer)
+        foreach (Transform child in itemContainer)  // loops over existing child objects in ItemConatiner 
         {
-            Destroy(child.gameObject);
+            Destroy(child.gameObject);  // removes each item slot from the UI aka clearing out any old items befor updating 
         }
 
-        // Add updated inventory items
-        foreach (InventoryItem item in inventory)
+       
+        foreach (InventoryItem item in inventory)   // Loops over inventoryItems 
         {
-            Debug.Log($"Item in inventory: {item.data.displayName}, Stack Size: {item.stackSize}");
 
-            // Create new item slot (this is your ItemSlotPrefab)
-            GameObject newItemSlot = Instantiate(itemSlotPrefab, itemContainer);
+           
+            GameObject newItemSlot = Instantiate(itemSlotPrefab, itemContainer);    // Create new itemslot for item 
 
-            // Set item icon (Image is used as a placeholder for the icon)
+            // makes the itemslot to the image 
             Image itemImage = newItemSlot.GetComponent<Image>();
             if (itemImage != null)
             {
-                itemImage.sprite = item.data.icone;
+                itemImage.sprite = item.data.icone; // sprite = 2D image or background 
             }
 
-            // Find the StackSizeText GameObject (which is a child of ItemSlotPrefab)
-            // Set StackSizeText
             Transform stackSizeTransform = newItemSlot.transform.Find("StackSizeText");
             if (stackSizeTransform != null)
             {
                 TextMeshProUGUI stackSizeText = stackSizeTransform.GetComponent<TextMeshProUGUI>();
                 if (stackSizeText != null)
                 {
-                    stackSizeText.text = item.stackSize > 1 ? item.stackSize.ToString() : ""; // If stack size is 1, leave it empty
+                    stackSizeText.text = item.stackSize > 1 ? item.stackSize.ToString() : ""; 
                 }
-                else
-                {
-                    Debug.LogError("TextMeshProUGUI component is missing on the StackSizeText object!");
-                }
+                
             }
-            else
-            {
-                Debug.LogError("StackSizeText object missing in the item slot prefab!");
-            }
+            
         }
     }
 }
