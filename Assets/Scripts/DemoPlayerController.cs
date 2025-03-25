@@ -5,6 +5,7 @@ public class DemoPlayerController : MonoBehaviour
 {
     public float attackDamage = 10f;
     public float reach = 4f;
+    
 
     private Health _health;
 
@@ -29,7 +30,7 @@ public class DemoPlayerController : MonoBehaviour
         
         if (Input.GetMouseButtonDown(0)) 
         {
-            Hit();
+            PlayerEquipment.instance.AttackWithEquippedWeapon();
         }
 
        
@@ -65,8 +66,10 @@ public class DemoPlayerController : MonoBehaviour
 
         if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out RaycastHit hit, reach))
         {
+            
             if (hit.transform.TryGetComponent(out ItemObject item))
             {
+                
                 item.OnHandlePickItem(); 
 
                  /*

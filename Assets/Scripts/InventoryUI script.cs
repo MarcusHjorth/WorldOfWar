@@ -53,7 +53,7 @@ public class InventoryUI : MonoBehaviour
             Image itemImage = newItemSlot.GetComponent<Image>();
             if (itemImage != null)
             {
-                itemImage.sprite = item.data.icone; // sprite = 2D image or background 
+                itemImage.sprite = item.data.icone; 
             }
 
             Transform stackSizeTransform = newItemSlot.transform.Find("StackSizeText");

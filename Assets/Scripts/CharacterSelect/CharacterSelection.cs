@@ -14,7 +14,7 @@ public class CharacterSelection : MonoBehaviour
   {
       if (characters == null || characters.Length == 0)
       {
-          Debug.LogError("Character array is empty! Please assign characters in the Inspector.");
+          //Debug.LogError("Character array is empty! Please assign characters in the Inspector.");
           return;
       }
 

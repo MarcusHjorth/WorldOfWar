@@ -1052,6 +1052,7 @@ MonoBehaviour:
   masterSlider: {fileID: 5069861457543208725}
   musicSlider: {fileID: 7789354675902119247}
   sfxSlider: {fileID: 617038205181165375}
+  applyGraphicsPopupPanel: {fileID: 0}
 --- !u!1 &3125733732457089020
 GameObject:
   m_ObjectHideFlags: 0

@@ -6,19 +6,22 @@ public class Health : MonoBehaviour
 {
     public Slider healthSlider;
     public Slider easeHealthSlider;
-    public float lerpSpeed = 0.05f;
+    public float lerpSpeed = 0.03f;
     
+    [SerializeField] private Canvas _healthBar;
     [SerializeField] private float maxHealth = 100f;
-    [SerializeField] private float currentHealth;
+    private float currentHealth;
     
     public Action OnHeal;
     public Action OnDamage;
     public Action OnDie;
+    private Camera _cam;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         currentHealth = maxHealth;
+        _cam = Camera.main;
     }
 
     void Update()
@@ -28,14 +31,19 @@ public class Health : MonoBehaviour
             healthSlider.value = currentHealth;
         }
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.F2))
         {
-            TakeDamage(10);
+            Damage(10);
         }
 
         if (easeHealthSlider != null && healthSlider != null && healthSlider.value != easeHealthSlider.value)
         {
             easeHealthSlider.value = Mathf.Lerp(easeHealthSlider.value, currentHealth, lerpSpeed);
+        }
+        
+        if (_healthBar != null)
+        {
+            _healthBar.transform.rotation = Quaternion.LookRotation(transform.position - _cam.transform.position);
         }
     }
 
@@ -84,10 +92,5 @@ public class Health : MonoBehaviour
     public bool IsDead()
     {
         return currentHealth <= 0;
-    }
-
-    public void TakeDamage(float amount)
-    {
-        currentHealth -= amount;
     }
 }

@@ -6,10 +6,18 @@ public class ItemObject : MonoBehaviour
 
     public void OnHandlePickItem()
     {
-        // Calls a new method 
-        InventorySystem.current.Add(referenceItem); // refenceItem from ItemObj 
 
-        // Destorys the gameObj in the scene then  is's hit with reycast 
+        // If it's a weapon, equip it and add it to inventory to track it
+        if (referenceItem.isWeapon)
+        {
+            PlayerEquipment.instance.EquipWeapon(referenceItem);
+        }
+        
+        // Add non-weapons to the inventory
+        InventorySystem.current.Add(referenceItem);
+        
+
+        // Destroy the game object after picking up the item
         Destroy(gameObject);
     }
 }

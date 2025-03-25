@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07d20fba122cbd042ac2132cb145f852, type: 3}
   m_Name: Sword
   m_EditorClassIdentifier: 
-  id: Inventory_Sword
+  id: sword
   displayName: Sword
   icone: {fileID: 21300000, guid: 5fd50594014b70e48bd6993443d46b32, type: 3}
   prefab: {fileID: 4857278322395296404, guid: a262d897f717f8f4f8c816f018cf988c, type: 3}
+  isWeapon: 1
+  attackPower: 5
