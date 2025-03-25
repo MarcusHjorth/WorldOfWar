@@ -3867,8 +3867,14 @@ PrefabInstance:
       objectReference: {fileID: 1063886911}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: [{targetCorrespondingSourceObject: {fileID: 1109429617743838087, guid: 8e5ae89d45121ec4eadb7bf780fc988e, type: 3}, insertIndex: -1, addedObject: {fileID: 1873862096}}]
-    m_AddedComponents: [{targetCorrespondingSourceObject: {fileID: 7771583839682685889, guid: 8e5ae89d45121ec4eadb7bf780fc988e, type: 3}, insertIndex: -1, addedObject: {fileID: 712475347}}]
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 1109429617743838087, guid: 8e5ae89d45121ec4eadb7bf780fc988e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1873862096}
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7771583839682685889, guid: 8e5ae89d45121ec4eadb7bf780fc988e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 712475347}
   m_SourcePrefab: {fileID: 100100000, guid: 8e5ae89d45121ec4eadb7bf780fc988e, type: 3}
 --- !u!1001 &374163669
 PrefabInstance:
@@ -6915,7 +6921,7 @@ PrefabInstance:
       value: WaterBlock_50m (5)
       objectReference: {fileID: 0}
     - target: {fileID: 1507636620937791839, guid: 7097ba7ba649e1f41bba232312bdcbd8, type: 3}
-      propertyPath: m_Materials.Array.data[0]
+      propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 8759ec410a6774b4ea13ae32dc2b8d2e, type: 2}
     m_RemovedComponents: []
@@ -7396,6 +7402,63 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4355314213356690513, guid: f8751881d9b5353469de9c27b61f5021, type: 3}
   m_PrefabInstance: {fileID: 727782074}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &731766479
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4857278322395296404, guid: a262d897f717f8f4f8c816f018cf988c, type: 3}
+      propertyPath: m_Name
+      value: one_handed_sword
+      objectReference: {fileID: 0}
+    - target: {fileID: 5198091074658363438, guid: a262d897f717f8f4f8c816f018cf988c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 151.84581
+      objectReference: {fileID: 0}
+    - target: {fileID: 5198091074658363438, guid: a262d897f717f8f4f8c816f018cf988c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 75.00458
+      objectReference: {fileID: 0}
+    - target: {fileID: 5198091074658363438, guid: a262d897f717f8f4f8c816f018cf988c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 820.37396
+      objectReference: {fileID: 0}
+    - target: {fileID: 5198091074658363438, guid: a262d897f717f8f4f8c816f018cf988c, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5198091074658363438, guid: a262d897f717f8f4f8c816f018cf988c, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5198091074658363438, guid: a262d897f717f8f4f8c816f018cf988c, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5198091074658363438, guid: a262d897f717f8f4f8c816f018cf988c, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5198091074658363438, guid: a262d897f717f8f4f8c816f018cf988c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5198091074658363438, guid: a262d897f717f8f4f8c816f018cf988c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5198091074658363438, guid: a262d897f717f8f4f8c816f018cf988c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a262d897f717f8f4f8c816f018cf988c, type: 3}
 --- !u!1001 &735265397
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7843,7 +7906,7 @@ PrefabInstance:
       value: WaterBlock_50m (4)
       objectReference: {fileID: 0}
     - target: {fileID: 1507636620937791839, guid: 7097ba7ba649e1f41bba232312bdcbd8, type: 3}
-      propertyPath: m_Materials.Array.data[0]
+      propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 8759ec410a6774b4ea13ae32dc2b8d2e, type: 2}
     m_RemovedComponents: []
@@ -8112,7 +8175,7 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 587517996786562783, guid: 26993d92f0b1be744aa9ec6e7ac50c41, type: 3}
-      propertyPath: m_Materials.Array.data[0]
+      propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 81de44ba352968f48996d5beeda36504, type: 2}
     - target: {fileID: 3971637862763625951, guid: 26993d92f0b1be744aa9ec6e7ac50c41, type: 3}
@@ -8858,7 +8921,7 @@ PrefabInstance:
       value: WaterBlock_50m (3)
       objectReference: {fileID: 0}
     - target: {fileID: 1507636620937791839, guid: 7097ba7ba649e1f41bba232312bdcbd8, type: 3}
-      propertyPath: m_Materials.Array.data[0]
+      propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 8759ec410a6774b4ea13ae32dc2b8d2e, type: 2}
     m_RemovedComponents: []
@@ -11676,6 +11739,63 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4355314213356690513, guid: f8751881d9b5353469de9c27b61f5021, type: 3}
   m_PrefabInstance: {fileID: 1069274397}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1091862207
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4857278322395296404, guid: a262d897f717f8f4f8c816f018cf988c, type: 3}
+      propertyPath: m_Name
+      value: one_handed_sword (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5198091074658363438, guid: a262d897f717f8f4f8c816f018cf988c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 150.83119
+      objectReference: {fileID: 0}
+    - target: {fileID: 5198091074658363438, guid: a262d897f717f8f4f8c816f018cf988c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 75.00458
+      objectReference: {fileID: 0}
+    - target: {fileID: 5198091074658363438, guid: a262d897f717f8f4f8c816f018cf988c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 820.37396
+      objectReference: {fileID: 0}
+    - target: {fileID: 5198091074658363438, guid: a262d897f717f8f4f8c816f018cf988c, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5198091074658363438, guid: a262d897f717f8f4f8c816f018cf988c, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5198091074658363438, guid: a262d897f717f8f4f8c816f018cf988c, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5198091074658363438, guid: a262d897f717f8f4f8c816f018cf988c, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5198091074658363438, guid: a262d897f717f8f4f8c816f018cf988c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5198091074658363438, guid: a262d897f717f8f4f8c816f018cf988c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5198091074658363438, guid: a262d897f717f8f4f8c816f018cf988c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a262d897f717f8f4f8c816f018cf988c, type: 3}
 --- !u!1001 &1092916166
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14607,7 +14727,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!81 &1362040855
 AudioListener:
   m_ObjectHideFlags: 0
@@ -16725,7 +16845,7 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 587517996786562783, guid: 26993d92f0b1be744aa9ec6e7ac50c41, type: 3}
-      propertyPath: m_Materials.Array.data[0]
+      propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 81de44ba352968f48996d5beeda36504, type: 2}
     - target: {fileID: 3971637862763625951, guid: 26993d92f0b1be744aa9ec6e7ac50c41, type: 3}
@@ -16808,7 +16928,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1546708680
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18011,7 +18131,7 @@ PrefabInstance:
       value: WaterBlock_50m (1)
       objectReference: {fileID: 0}
     - target: {fileID: 1507636620937791839, guid: 7097ba7ba649e1f41bba232312bdcbd8, type: 3}
-      propertyPath: m_Materials.Array.data[0]
+      propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 8759ec410a6774b4ea13ae32dc2b8d2e, type: 2}
     m_RemovedComponents: []
@@ -20024,7 +20144,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1862595692
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20994,7 +21114,7 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5361838990059381790, guid: 050099890a2d8b148b865d8b932dd87f, type: 3}
-      propertyPath: m_Materials.Array.data[1]
+      propertyPath: 'm_Materials.Array.data[1]'
       value: 
       objectReference: {fileID: 2100000, guid: 2ac276737b346d4429313b6954a9a918, type: 2}
     m_RemovedComponents: []
@@ -21181,7 +21301,8 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: [{fileID: 4758064215268989162, guid: 59e81ff29d768804db171ecf24de8319, type: 3}]
+    m_RemovedGameObjects:
+    - {fileID: 4758064215268989162, guid: 59e81ff29d768804db171ecf24de8319, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 4061217315976678906, guid: 59e81ff29d768804db171ecf24de8319, type: 3}
       insertIndex: -1
@@ -23162,7 +23283,7 @@ PrefabInstance:
       value: WaterBlock_50m (2)
       objectReference: {fileID: 0}
     - target: {fileID: 1507636620937791839, guid: 7097ba7ba649e1f41bba232312bdcbd8, type: 3}
-      propertyPath: m_Materials.Array.data[0]
+      propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 8759ec410a6774b4ea13ae32dc2b8d2e, type: 2}
     m_RemovedComponents: []
@@ -23236,7 +23357,7 @@ PrefabInstance:
       value: WaterBlock_50m (6)
       objectReference: {fileID: 0}
     - target: {fileID: 1507636620937791839, guid: 7097ba7ba649e1f41bba232312bdcbd8, type: 3}
-      propertyPath: m_Materials.Array.data[0]
+      propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 8759ec410a6774b4ea13ae32dc2b8d2e, type: 2}
     m_RemovedComponents: []
@@ -24055,7 +24176,7 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5361838990059381790, guid: 050099890a2d8b148b865d8b932dd87f, type: 3}
-      propertyPath: m_Materials.Array.data[1]
+      propertyPath: 'm_Materials.Array.data[1]'
       value: 
       objectReference: {fileID: 2100000, guid: 2ac276737b346d4429313b6954a9a918, type: 2}
     m_RemovedComponents: []
@@ -24091,3 +24212,5 @@ SceneRoots:
   - {fileID: 1649227856}
   - {fileID: 7496294688691139671}
   - {fileID: 1945120889}
+  - {fileID: 731766479}
+  - {fileID: 1091862207}

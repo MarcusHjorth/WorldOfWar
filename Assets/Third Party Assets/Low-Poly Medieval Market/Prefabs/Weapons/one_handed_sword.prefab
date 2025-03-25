@@ -69,6 +69,7 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 12f7312dd149c3b4a92b4216a8ae4800, type: 2}
+  - {fileID: 2100000, guid: 2ac276737b346d4429313b6954a9a918, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -137,7 +138,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a6aedd34fbd3943889beb234f9aa71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponData: {fileID: 0}
+  weaponData: {fileID: 11400000, guid: 1541a823fc543304388ee6e7abf2d3c9, type: 2}
 --- !u!114 &5592719145312595002
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -150,4 +151,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6540be8170e6b4d46939ec1a19861534, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  referenceItem: {fileID: 0}
+  referenceItem: {fileID: 11400000, guid: 1541a823fc543304388ee6e7abf2d3c9, type: 2}
