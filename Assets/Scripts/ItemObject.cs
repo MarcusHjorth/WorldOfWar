@@ -6,11 +6,6 @@ public class ItemObject : MonoBehaviour
 
     public void OnHandlePickItem()
     {
-        if (referenceItem == null)
-        {
-            Debug.LogError("Reference item is null! Cannot handle the item.");
-            return;
-        }
 
         // If it's a weapon, equip it and add it to inventory to track it
         if (referenceItem.isWeapon)

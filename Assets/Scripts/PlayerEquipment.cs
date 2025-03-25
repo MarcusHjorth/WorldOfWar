@@ -23,17 +23,6 @@ public class PlayerEquipment : MonoBehaviour
 
     public void EquipWeapon(InventoryItemData weaponData)
     {
-        if (weaponData == null)
-        {
-            Debug.LogError("Weapon data is null! Cannot equip weapon.");
-            return;
-        }
-
-        if (weaponData.prefab == null)
-        {
-            Debug.LogError("Weapon prefab is null! Cannot equip weapon.");
-            return;
-        }
 
         // Destroy previous weapon if equipped
         if (currentWeapon != null)
