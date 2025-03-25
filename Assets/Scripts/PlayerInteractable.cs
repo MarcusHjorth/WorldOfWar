@@ -71,10 +71,6 @@ public class PlayerInteractable : MonoBehaviour
       Debug.Log("✅ Close key was pressed! Hiding quest panel...");
       questPanel.SetActive(false);
     }
-    else
-    {
-      Debug.LogError("❌ Quest Panel NOT found! Make sure it's named correctly.");
-    }
   }
 
 }
