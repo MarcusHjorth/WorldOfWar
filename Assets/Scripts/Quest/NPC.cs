@@ -23,14 +23,7 @@ public class NPC : MonoBehaviour, IInteractable
                 questText.text = "Greetings traveler! I need you to pick up some axes and swords for me! Can you do that?"; // ✅ Set the text dynamically
                 interactionEvent.Invoke();
             }
-            else
-            {
-                Debug.LogError("❌ Quest Text is NOT assigned in the Inspector!");
-            }
         }
-        else
-        {
-            Debug.LogError("❌ Quest Panel is NOT assigned in the Inspector!");
-        }
+        
     }
 }

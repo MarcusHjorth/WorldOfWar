@@ -16,6 +16,9 @@ public class ItemObject : MonoBehaviour
         // Add non-weapons to the inventory
         InventorySystem.current.Add(referenceItem);
         
+        // 👉 Track the item for quest progress
+        QuestTracker.instance.RegisterItem(referenceItem.displayName);
+        
 
         // Destroy the game object after picking up the item
         Destroy(gameObject);
