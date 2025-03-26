@@ -7353,7 +7353,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackDamage: 10
   reach: 4
-  weaponHolder: {fileID: 0}
+  weaponHolder: {fileID: 1873862096}
 --- !u!114 &712475348
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23705,7 +23705,8 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 7445974802541709522, guid: faa13f682443ecc4cb07ae03a1d07007, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: faa13f682443ecc4cb07ae03a1d07007, type: 3}
