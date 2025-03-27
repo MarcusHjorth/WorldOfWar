@@ -12931,6 +12931,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1949241794}
     m_Modifications:
+    - target: {fileID: 1080068348400752511, guid: f88d372a96de6474886ed50f7b27791f, type: 3}
+      propertyPath: m_text
+      value: Character name
+      objectReference: {fileID: 0}
     - target: {fileID: 1189869015298208180, guid: f88d372a96de6474886ed50f7b27791f, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -25672,6 +25676,18 @@ PrefabInstance:
     - target: {fileID: 3101878732260636709, guid: 90aa5b0bcb8bdd1469cfd08441981663, type: 3}
       propertyPath: m_Name
       value: Village
+      objectReference: {fileID: 0}
+    - target: {fileID: 5159587071455158471, guid: 90aa5b0bcb8bdd1469cfd08441981663, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.242
+      objectReference: {fileID: 0}
+    - target: {fileID: 5159587071455158471, guid: 90aa5b0bcb8bdd1469cfd08441981663, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.132
+      objectReference: {fileID: 0}
+    - target: {fileID: 5159587071455158471, guid: 90aa5b0bcb8bdd1469cfd08441981663, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1.8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
